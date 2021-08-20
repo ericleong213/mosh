@@ -2,28 +2,36 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
-// npm install @react-native-community/hooks first
-import { useDeviceOrientation, useDimensions } from '@react-native-community/hooks';
-
 
 export default function App() {
 
-  // Object destructuring, landscape is the property inside the object
-  const { landscape } = useDeviceOrientation();
+
 
   return (
-    <SafeAreaView style={styles.container}>
       <View style={{
-        backgroundColor: "dodgerblue",
-        width: '100%',
-
-        // Change the height as the orientation change
-        height: landscape ? "100%" : "30%",
-
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row", // make horizontal as main axis, vertical as secondary axis
+        justifyContent: "center", //along main axis
+        alignItems: "center" //along secondary axis
       }}>
-        <Text>Mosh is with us, thanks Mosh</Text>
+        <View style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 300,
+        }}></View>
+        <View style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 200,
+        }}></View>
+        <View style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}></View>
+
       </View>
-    </SafeAreaView>
   );
 }
 
