@@ -9,6 +9,8 @@ import {
   Dimensions,
 } from "react-native";
 
+import colors from "../config/colors";
+
 const image = require("../assets/chair.jpg");
 const logo = require("../assets/logo-red.png");
 const windowWidth = Dimensions.get("window").width;
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
     height: "70%",
   },
   closeButton: {
-    backgroundColor: "#fc5c65",
+    backgroundColor: colors.primary,
     width: 60,
     height: 60,
     position: "absolute",
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     left: 20,
   },
   deletetButton: {
-    backgroundColor: "#4ECDC4",
+    backgroundColor: colors.secondary,
     width: 60,
     height: 60,
     position: "absolute",

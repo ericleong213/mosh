@@ -9,6 +9,8 @@ import {
   Dimensions,
 } from "react-native";
 
+import colors from "../config/colors";
+
 const image = require("../assets/background.jpg");
 const logo = require("../assets/logo-red.png");
 const windowWidth = Dimensions.get("window").width;
@@ -42,12 +44,12 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   loginButton: {
-    backgroundColor: "#fc5c65",
+    backgroundColor: colors.primary,
     width: "100%",
     height: 60,
   },
   registerButton: {
-    backgroundColor: "#4ECDC4",
+    backgroundColor: colors.secondary,
     width: "100%",
     height: 60,
   },
