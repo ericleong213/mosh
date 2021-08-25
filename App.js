@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+import AppText from "./components/AppText";
 
 export default function App() {
   return (
@@ -11,8 +13,8 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      {/* use icon library from expo */}
       <MaterialCommunityIcons name="email" size={50} color="dodgerblue" />
+      <AppText>Platform select method is used</AppText>
     </View>
   );
 }

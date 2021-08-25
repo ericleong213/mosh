@@ -5,12 +5,22 @@ const AppText = (props) => {
   return <Text style={styles.txt}> {props.children}</Text>;
 };
 
-export default AppText;
-
 const styles = StyleSheet.create({
   txt: {
-    color: "red",
-    fontSize: 18,
-    fontFamily: Platform.OS === "android" ? "Roberto" : "Avenir",
+    // use spread operator before, because Platform.select method return an object, it will return corresponding object according to operation system
+    ...Platform.select({
+      ios: {
+        color: "green",
+        fontSize: 20,
+        fontFamily: "Avenir",
+      },
+      android: {
+        color: "blue",
+        fontSize: 18,
+        fontFamily: "Roboto",
+      },
+    }),
   },
 });
+
+export default AppText;
