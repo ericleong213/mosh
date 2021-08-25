@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     // use spread operator before, because Platform.select method return an object, it will return corresponding object according to operation system
     ...Platform.select({
       ios: {
-        color: "green",
+        color: "red",
         fontSize: 20,
         fontFamily: "Avenir",
       },
