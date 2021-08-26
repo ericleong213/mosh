@@ -3,7 +3,7 @@ import { View, Text, Platform } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 // create js file name with .ios and . android extension, expo will automatically detect the right file with corresponding operation system
-import AppText from "./components/AppText";
+import AppText from "./components/AppText/AppText";
 
 export default function App() {
   return (
