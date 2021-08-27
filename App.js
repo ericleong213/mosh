@@ -1,9 +1,6 @@
 import React from "react";
 import { View, Text, Platform } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-// create js file name with .ios and . android extension, expo will automatically detect the right file with corresponding operation system
-import AppText from "./components/AppText";
+import AppButton from "./components/AppButton";
 
 export default function App() {
   return (
@@ -14,8 +11,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <MaterialCommunityIcons name="email" size={50} color="dodgerblue" />
-      <AppText>Platform select method is used</AppText>
+      <AppButton title="LOGIN" />
     </View>
   );
 }
