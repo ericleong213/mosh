@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Button, Text, StyleSheet } from "react-native";
 
-import colors from "../config/colors";
+import colors from "../../config/colors";
 
 const AppButton = (props) => {
   return (
     <View style={styles.container}>
-      <Button title={props.title} color="white" />
+      <Button title={props.title} color={colors.primary} />
     </View>
   );
 };

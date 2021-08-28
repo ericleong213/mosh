@@ -1,8 +1,7 @@
 import React from "react";
 import { View, Text, Platform } from "react-native";
 
-
-import AppButton from "./components/AppButton";
+import AppButton from "./components/AppButton/AppButton";
 
 export default function App() {
   return (
