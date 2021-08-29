@@ -1,27 +1,24 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  ImageBackground,
-  Image,
-  Dimensions,
-} from "react-native";
+import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
 
 const image = require("../assets/background.jpg");
 const logo = require("../assets/logo-red.png");
-const windowWidth = Dimensions.get("window").width;
 
 export default function WelcomeScreen() {
   return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.container}>
+    <ImageBackground
+      source={image}
+      resizeMode="cover"
+      style={styles.container}
+      blurRadius={10}
+    >
       <Image style={styles.logoImage} source={logo} resizeMode="cover" />
       <Text style={styles.title}>Sell What You Don't Need</Text>
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      <AppButton title="LOGIN" color={colors.primary} />
+      <AppButton title="REGISTER" color={colors.secondary} />
     </ImageBackground>
   );
 }
@@ -34,8 +31,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "black",
-    top: 150,
+    top: 160,
     position: "absolute",
+    fontWeight: "bold",
+    fontSize: 20,
   },
   logoImage: {
     width: 100,
