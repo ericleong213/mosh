@@ -1,26 +1,27 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  ImageBackground,
-  Image,
-  Dimensions,
-} from "react-native";
+import { View, StyleSheet, Image, Dimensions } from "react-native";
 
-import colors from "../config/colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const image = require("../assets/chair.jpg");
-const logo = require("../assets/logo-red.png");
 const windowWidth = Dimensions.get("window").width;
 
 export default function ViewImageScreen() {
   return (
     <View style={styles.container}>
       <Image source={image} resizeMode="stretch" style={styles.image} />
-      <View style={styles.closeButton}></View>
-      <View style={styles.deletetButton}></View>
+      <MaterialCommunityIcons
+        name="close"
+        size={30}
+        color="white"
+        style={styles.closeButton}
+      />
+      <MaterialCommunityIcons
+        name="trash-can-outline"
+        size={30}
+        color="white"
+        style={styles.deleteButton}
+      />
     </View>
   );
 }
@@ -34,32 +35,16 @@ const styles = StyleSheet.create({
   title: {
     color: "black",
   },
-  logo: {
-    top: 30,
-    left: windowWidth / 2 - 100 / 2,
-    position: "absolute",
-  },
-  logoImage: {
-    top: 150,
-    width: 100,
-    height: 100,
-  },
   image: {
     width: "100%",
     height: "70%",
   },
   closeButton: {
-    backgroundColor: colors.primary,
-    width: 60,
-    height: 60,
     position: "absolute",
     top: 20,
     left: 20,
   },
-  deletetButton: {
-    backgroundColor: colors.secondary,
-    width: 60,
-    height: 60,
+  deleteButton: {
     position: "absolute",
     top: 20,
     right: 20,

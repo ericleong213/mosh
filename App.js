@@ -1,18 +1,22 @@
 import React from "react";
-import { View, Text, Platform } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-import AppButton from "./components/AppButton/AppButton";
+import AppButton from "./components/AppButton";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import Card from "./components/Card";
+import ListingDetailsScreen from "./screens/ListingDetailsScreen";
+import ViewImageScreen from "./screens/ViewImageScreen";
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <AppButton title="LOGIN" />
+    <View style={styles.container}>
+      <ViewImageScreen />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
