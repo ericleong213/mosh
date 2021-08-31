@@ -17,8 +17,10 @@ export default function WelcomeScreen() {
     >
       <Image style={styles.logoImage} source={logo} resizeMode="cover" />
       <Text style={styles.title}>Sell What You Don't Need</Text>
-      <AppButton title="LOGIN" color="primary" onPress={() => console.log("login is pressed")} />
-      <AppButton title="REGISTER" color="secondary" onPress={() => console.log("Register is pressed")}/>
+      <View style={styles.buttonContainer}>
+        <AppButton title="LOGIN" color="primary" onPress={() => console.log("login is pressed")} />
+        <AppButton title="REGISTER" color="secondary" onPress={() => console.log("Register is pressed")}/>
+      </View>
     </ImageBackground>
   );
 }
@@ -52,4 +54,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 60,
   },
+  buttonContainer:{
+    width: "100%",
+    paddingHorizontal: 25,
+    marginVertical: 10,
+  }
 });
