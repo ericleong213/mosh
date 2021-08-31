@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
-import AppButton from "../components/AppButton";
+import AppButton from "../components/AppButton/AppButton"
 
 import colors from "../config/colors";
 
@@ -17,8 +17,8 @@ export default function WelcomeScreen() {
     >
       <Image style={styles.logoImage} source={logo} resizeMode="cover" />
       <Text style={styles.title}>Sell What You Don't Need</Text>
-      <AppButton title="LOGIN" color={colors.primary} />
-      <AppButton title="REGISTER" color={colors.secondary} />
+      <AppButton title="LOGIN" color="primary" onPress={() => console.log("login is pressed")} />
+      <AppButton title="REGISTER" color="secondary" onPress={() => console.log("Register is pressed")}/>
     </ImageBackground>
   );
 }
