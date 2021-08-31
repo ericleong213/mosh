@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 import Card from "../components/Card";
 import colors from "../config/colors";
+import ListItem from "../components/ListItem";
 
 export default function ListingDetailsScreen() {
   return (
@@ -16,16 +17,7 @@ export default function ListingDetailsScreen() {
         <Text style={styles.title}>Red jacket for sale</Text>
         <Text style={styles.price}>$ 100</Text>
       </View>
-      <View style={styles.contactBox}>
-        <Image
-          source={require("../assets/mosh.jpg")}
-          style={styles.contactImage}
-        />
-        <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
-          <Text style={styles.contactName}>Mosh Hamedani</Text>
-          <Text style={styles.contactListNo}>5 Listings</Text>
-        </View>
-      </View>
+      <ListItem/>
     </View>
   );
 }
@@ -52,20 +44,5 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
-  contactBox: {
-    paddingVertical: 20,
-    paddingLeft: 20,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-    flexDirection: "row",
-  },
-  contactName: {
-    fontWeight: "bold",
-  },
-  contactListNo: {},
-  contactImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-  },
+
 });
