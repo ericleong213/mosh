@@ -2,13 +2,10 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import ViewImageScreen from "./screens/ViewImageScreen";
+import MessageScreen from "./screens/MessageScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <ViewImageScreen />
-    </View>
-  );
+  return <MessageScreen />;
 }
 
 const styles = StyleSheet.create({
