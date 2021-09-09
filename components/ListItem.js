@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   contactName: {
     fontWeight: "bold",
   },
-  contactListNo: {},
   contactImage: {
     width: 50,
     height: 50,
