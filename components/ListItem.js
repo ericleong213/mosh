@@ -1,19 +1,27 @@
 import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+} from "react-native";
 
 import colors from "../config/colors";
 
-const ListItem = ({ title, subTitle, image }) => {
+const ListItem = ({ title, subTitle, image, onPress }) => {
   return (
-    <View style={styles.container}>
-      <Image source={image} style={styles.contactImage} />
-      <View style={styles.contactBox}>
-        <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
-          <Text style={styles.contactName}>{title}</Text>
-          <Text style={styles.contactListNo}>{subTitle}</Text>
+    <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
+      <View style={styles.container}>
+        <Image source={image} style={styles.contactImage} />
+        <View style={styles.contactBox}>
+          <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
+            <Text style={styles.contactName}>{title}</Text>
+            <Text style={styles.contactListNo}>{subTitle}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
