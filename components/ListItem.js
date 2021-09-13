@@ -6,22 +6,25 @@ import {
   StyleSheet,
   TouchableHighlight,
 } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import colors from "../config/colors";
 
-const ListItem = ({ title, subTitle, image, onPress }) => {
+const ListItem = ({ title, subTitle, image, onPress, renderRightActions }) => {
   return (
-    <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
-      <View style={styles.container}>
-        <Image source={image} style={styles.contactImage} />
-        <View style={styles.contactBox}>
-          <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
-            <Text style={styles.contactName}>{title}</Text>
-            <Text style={styles.contactListNo}>{subTitle}</Text>
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
+        <View style={styles.container}>
+          <Image source={image} style={styles.contactImage} />
+          <View style={styles.contactBox}>
+            <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
+              <Text style={styles.contactName}>{title}</Text>
+              <Text style={styles.contactListNo}>{subTitle}</Text>
+            </View>
           </View>
         </View>
-      </View>
-    </TouchableHighlight>
+      </TouchableHighlight>
+    </Swipeable>
   );
 };
 
