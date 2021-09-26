@@ -10,11 +10,18 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import colors from "../config/colors";
 
-const ListItem = ({ title, subTitle, image, onPress, renderRightActions }) => {
+const ListItem = ({
+  title,
+  subTitle,
+  image,
+  onPress,
+  renderRightActions,
+  styles2,
+}) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
-        <View style={styles.container}>
+        <View style={[styles.container, styles2]}>
           <Image source={image} style={styles.contactImage} />
           <View style={styles.contactBox}>
             <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
