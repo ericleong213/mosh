@@ -14,6 +14,7 @@ const ListItem = ({
   title,
   subTitle,
   image,
+  ImageComponent,
   onPress,
   renderRightActions,
   styles2,
@@ -22,12 +23,17 @@ const ListItem = ({
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
         <View style={[styles.container, styles2]}>
-          <Image source={image} style={styles.contactImage} />
-          <View style={styles.contactBox}>
-            <View style={{ flexDirection: "column", paddingHorizontal: 15 }}>
-              <Text style={styles.contactName}>{title}</Text>
-              <Text style={styles.contactListNo}>{subTitle}</Text>
-            </View>
+          {ImageComponent}
+          {image && <Image source={image} style={styles.contactImage} />}
+          <View
+            style={{
+              flexDirection: "column",
+              paddingHorizontal: 15,
+              justifyContent: "center",
+            }}
+          >
+            <Text style={styles.contactName}>{title}</Text>
+            {subTitle && <Text>{subTitle}</Text>}
           </View>
         </View>
       </TouchableHighlight>
