@@ -14,7 +14,7 @@ const ListItem = ({
   title,
   subTitle,
   image,
-  ImageComponent,
+  IconComponent,
   onPress,
   renderRightActions,
   styles2,
@@ -23,7 +23,7 @@ const ListItem = ({
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
         <View style={[styles.container, styles2]}>
-          {ImageComponent}
+          {IconComponent}
           {image && <Image source={image} style={styles.contactImage} />}
           <View
             style={{
@@ -47,9 +47,8 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
     paddingLeft: 20,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
     flexDirection: "row",
+    backgroundColor: "lightgrey",
   },
   contactName: {
     fontWeight: "bold",
