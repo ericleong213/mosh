@@ -5,8 +5,7 @@ import { View, Text } from "react-native";
 import styles from "./Styles";
 
 const AppText = (props) => {
-  return <Text style={styles.txt}> {props.children}</Text>;
+  return <Text style={[styles.txt, props.style]}> {props.children}</Text>;
 };
-
 
 export default AppText;
