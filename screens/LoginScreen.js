@@ -5,6 +5,7 @@ import * as Yup from "yup";
 
 import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/AppButton/AppButton";
+import AppFormField from "../components/AppFormField";
 import ErrorMessage from "../components/ErrorMessage";
 import Screen from "../components/Screen";
 
@@ -24,27 +25,25 @@ export default function LoginScreen() {
       >
         {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
-            <AppTextInput
-              placeholder="Email"
+            <AppFormField
+              name="email"
               icon="email"
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
-              onChangeText={handleChange("email")}
+              // onChangeText={handleChange("email")}
               textContextType="emailAddress"
-              onBlur={() => setFieldTouched("email")}
+              // onBlur={() => setFieldTouched("email")}
             />
-            <ErrorMessage error={errors.email} visible={touched.email} />
-            <AppTextInput
-              placeholder="Password"
+            <AppFormField
+              name="password"
               icon="lock"
               autoCapitalize="none"
               autoCorrect={false}
-              onChangeText={handleChange("password")}
+              // onChangeText={handleChange("password")}
               textContextType="password"
               secureTextEntry
             />
-            <ErrorMessage error={errors.email} visible={touched.password} />
             <AppButton title="login" onPress={handleSubmit} />
           </>
         )}
