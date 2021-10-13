@@ -38,7 +38,7 @@ const AppPicker = ({
             />
           )}
           <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
+            {selectedItem ? selectedItem : placeholder}
           </AppText>
           <MaterialCommunityIcons name="chevron-down" color="black" size={20} />
         </View>
@@ -48,13 +48,13 @@ const AppPicker = ({
           <Button title="close" onPress={() => setModalVisible(false)} />
           <FlatList
             data={items}
-            keyExtractor={(item) => item.title}
+            keyExtractor={(item) => item.label}
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
-                  onSelectedItem(item);
+                  onSelectedItem(item.label);
                 }}
               />
             )}

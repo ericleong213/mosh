@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -13,10 +13,7 @@ import {
 
 // validation with Yup , need to review with mosh's source code
 const validationSchema = Yup.object().shape({
-  title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().min(1).max(10000).label("Price"),
   category: Yup.string().required().nullable().label("Category"),
-  description: Yup.string().label("Description"),
 });
 
 const sampleItems = [
@@ -25,21 +22,14 @@ const sampleItems = [
   { label: "bananan", price: 300 },
 ];
 
-const ListingEditScreen = () => {
+const PickerScreen = () => {
   return (
     <Screen style={styles.container}>
       <AppForm
-        initialValues={{
-          title: "",
-          price: "",
-          category: null,
-          description: "",
-        }}
+        initialValues={{ category: null }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <AppFormField name="title" autoCapitalize="none" autoCorrect={false} />
-        <AppFormField name="price" autoCapitalize="none" autoCorrect={false} />
         <AppFormPicker
           name="category"
           items={sampleItems}
@@ -47,18 +37,14 @@ const ListingEditScreen = () => {
           autoCapitalize="none"
           autoCorrect={false}
         />
-        <AppFormField
-          name="description"
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
+
         <SubmitButton title="POST" />
       </AppForm>
     </Screen>
   );
 };
 
-export default ListingEditScreen;
+export default PickerScreen;
 
 const styles = StyleSheet.create({
   container: {

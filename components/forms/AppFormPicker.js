@@ -3,33 +3,19 @@ import { View } from "react-native";
 import { useFormikContext } from "formik";
 
 import AppPicker from "../AppPicker";
-import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
-//   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
-
-//   const onSelectedItem = (values) => {
-//     setSelectedItem(values);
-//     // setFieldValue(values)
-//   };
-
-//   const [selectedItem, setSelectedItem] = useState(items[2]);
-
-const AppFormPicker = ({ name, ...otherProps }) => {
-  const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
+const AppFormPicker = ({ name, items, placeholder }) => {
+  const { errors, touched, values, setFieldValue } = useFormikContext();
 
   return (
     <>
-      <AppTextInput
-        onBlur={() => setFieldTouched(name)}
-        placeholder={name}
-        onChangeText={handleChange(name)}
-        {...otherProps}
-        //   icon="lock"
-        //   autoCapitalize="none"
-        //   autoCorrect={false}
-        // textContextType={"password"}
-        //   secureTextEntry
+      <AppPicker
+        name={name}
+        items={items}
+        placeholder={placeholder}
+        selectedItem={values[name]}
+        onSelectedItem={(value) => setFieldValue(name, value)}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
