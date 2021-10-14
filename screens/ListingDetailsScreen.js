@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 import Card from "../components/Card";
 import colors from "../config/colors";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 
 export default function ListingDetailsScreen() {
   return (
@@ -17,7 +17,7 @@ export default function ListingDetailsScreen() {
         <Text style={styles.title}>Red jacket for sale</Text>
         <Text style={styles.price}>$ 100</Text>
       </View>
-      <ListItem/>
+      <ListItem />
     </View>
   );
 }
@@ -44,5 +44,4 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
-
 });
