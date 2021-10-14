@@ -35,8 +35,10 @@ const ListItem = ({
               justifyContent: "center",
             }}
           >
-            <Text style={styles.contactName}>{title}</Text>
-            {subTitle && <Text>{subTitle}</Text>}
+            <Text style={styles.contactName} numberOfLines={1}>
+              {title}
+            </Text>
+            {subTitle && <Text numberOfLines={1}>{subTitle}</Text>}
           </View>
           {showChevrons && (
             <Icon

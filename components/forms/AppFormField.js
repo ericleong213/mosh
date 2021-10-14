@@ -14,6 +14,7 @@ const AppFormField = ({ name, ...otherProps }) => {
         onBlur={() => setFieldTouched(name)}
         placeholder={name}
         onChangeText={handleChange(name)}
+        width="100%"
         {...otherProps}
         //   icon="lock"
         //   autoCapitalize="none"
