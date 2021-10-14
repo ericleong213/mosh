@@ -9,6 +9,7 @@ import {
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import colors from "../../config/colors";
+import Icon from "../Icon";
 
 const ListItem = ({
   title,
@@ -18,6 +19,7 @@ const ListItem = ({
   onPress,
   renderRightActions,
   styles2,
+  showChevrons = true,
 }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
@@ -27,6 +29,7 @@ const ListItem = ({
           {image && <Image source={image} style={styles.contactImage} />}
           <View
             style={{
+              flex: 1,
               flexDirection: "column",
               paddingHorizontal: 15,
               justifyContent: "center",
@@ -35,6 +38,14 @@ const ListItem = ({
             <Text style={styles.contactName}>{title}</Text>
             {subTitle && <Text>{subTitle}</Text>}
           </View>
+          {showChevrons && (
+            <Icon
+              name="chevron-right"
+              size={45}
+              backgroundColor="lightgrey"
+              iconColor="black"
+            />
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>
