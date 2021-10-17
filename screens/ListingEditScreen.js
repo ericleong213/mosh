@@ -20,9 +20,15 @@ const validationSchema = Yup.object().shape({
 });
 
 const sampleItems = [
-  { label: "apple", price: 100 },
-  { label: "orange", price: 200 },
-  { label: "bananan", price: 300 },
+  { label: "Furniture", icon: "floor-lamp", color: "#fc5c65" },
+  { label: "Cars", icon: "car", color: "#fd9644" },
+  { label: "Cameras", icon: "camera", color: "#fed330" },
+  { label: "Games", icon: "cards", color: "#26de81" },
+  { label: "Clothing", icon: "shoe-heel", color: "#2bcbba" },
+  { label: "Sports", icon: "basketball", color: "#45aaf2" },
+  { label: "Movies & Music", icon: "headphones", color: "#4b7bec" },
+  { label: "Books", icon: "headphones", color: "#4b7bec" },
+  { label: "Others", icon: "headphones", color: "#4b7bec" },
 ];
 
 const ListingEditScreen = () => {

@@ -1,11 +1,19 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
-import AppText from "./AppText/AppText";
+import { TouchableOpacity, StyleSheet, View, Text, Dimensions } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const PickerItem = ({ label, onPress }) => {
+const screen = Dimensions.get("screen");
+const itemWidth = 100;
+
+const PickerItem = ({ label, onPress, icon, color }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <View style={styles.item}>
+        <View style={[styles.icon, { backgroundColor: color }]}>
+          <MaterialCommunityIcons name={icon} color="black" size={35} />
+        </View>
+        <Text style={styles.text}>{label}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -13,7 +21,23 @@ const PickerItem = ({ label, onPress }) => {
 export default PickerItem;
 
 const styles = StyleSheet.create({
+  item: {
+    width: itemWidth,
+    height: 135,
+    //make the item space around evenly
+    margin: (screen.width - itemWidth*3)/6,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    backgroundColor: "white",
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   text: {
-    padding: 15,
+    fontSize: 20,
   },
 });
