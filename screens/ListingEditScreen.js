@@ -45,13 +45,19 @@ const ListingEditScreen = () => {
         validationSchema={validationSchema}
       >
         <AppFormField name="title" autoCapitalize="none" autoCorrect={false} />
-        <AppFormField name="price" autoCapitalize="none" autoCorrect={false} />
+        <AppFormField
+          name="price"
+          autoCapitalize="none"
+          autoCorrect={false}
+          width="40%"
+        />
         <AppFormPicker
           name="category"
           items={sampleItems}
           placeholder="category"
           autoCapitalize="none"
           autoCorrect={false}
+          width="50%"
         />
         <AppFormField
           name="description"

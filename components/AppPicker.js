@@ -18,6 +18,7 @@ import PickerItem from "./PickerItem";
 
 const AppPicker = ({
   items,
+  width = "100%",
   placeholder,
   onSelectedItem,
   icon,
@@ -28,7 +29,7 @@ const AppPicker = ({
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -49,7 +50,7 @@ const AppPicker = ({
             flexDirection: "column",
           }}
         >
-          <View style={{  }}>
+          <View style={{}}>
             <Button title="close" onPress={() => setModalVisible(false)} />
           </View>
           <FlatList
