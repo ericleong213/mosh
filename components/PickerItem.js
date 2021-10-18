@@ -1,17 +1,18 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, View, Text, Dimensions } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  Text,
+  Dimensions,
+} from "react-native";
 
 const screen = Dimensions.get("screen");
-const itemWidth = 100;
 
-const PickerItem = ({ label, onPress, icon, color }) => {
+const PickerItem = ({ label, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.item}>
-        <View style={[styles.icon, { backgroundColor: color }]}>
-          <MaterialCommunityIcons name={icon} color="black" size={35} />
-        </View>
         <Text style={styles.text}>{label}</Text>
       </View>
     </TouchableOpacity>
@@ -22,18 +23,9 @@ export default PickerItem;
 
 const styles = StyleSheet.create({
   item: {
-    width: itemWidth,
-    height: 135,
+    margin: 15,
+    height: 40,
     //make the item space around evenly
-    margin: (screen.width - itemWidth*3)/6,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  icon: {
-    backgroundColor: "white",
-    width: 90,
-    height: 90,
-    borderRadius: 45,
     justifyContent: "center",
     alignItems: "center",
   },

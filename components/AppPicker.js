@@ -23,6 +23,7 @@ const AppPicker = ({
   onSelectedItem,
   icon,
   selectedItem,
+  PickerItemComponent = PickerItem,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -58,7 +59,7 @@ const AppPicker = ({
             data={items}
             keyExtractor={(item) => item.label}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 color={item.color}
                 icon={item.icon}
