@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, TextInput, View, Switch } from "react-native";
 
-import AccountScreen from "./screens/AccountScreen";
-import MessageScreen from "./screens/MessageScreen";
-import ListingEditScreen from "./screens/ListingEditScreen";
+import Screen from "./components/Screen";
+import * as ImagePicker from "expo-image-picker";
 
 export default function App() {
-  return <ListingEditScreen />;
+  const requestPermission = async () => {
+    const result = await ImagePicker.requestCameraPermissionsAsync();
+    if (!result.granted) alert("You need to enable access permission");
+  };
+
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  return (
+    <Screen>
+      <Text>hi23</Text>
+    </Screen>
+  );
 }
