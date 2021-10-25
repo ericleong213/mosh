@@ -6,38 +6,19 @@ import ImageInputList from "./components/ImageInputList";
 import Screen from "./components/Screen";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState();
+  const [imageUris, setImageUris] = useState([]);
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
+  };
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri != uri));
+  };
 
   return (
-    <ImageInput imageUri={imageUri} onChangeImage={(uri) => setImageUri(uri)} />
+    <ImageInputList
+      imageUris={imageUris}
+      onAddImage={handleAdd}
+      onRemoveImage={handleRemove}
+    />
   );
 }
-
-// export default function App() {
-//   const [imageUri, setImageUri] = useState();
-
-//   const selectImage = async () => {
-//     try {
-//       const result = await ImagePicker.launchImageLibraryAsync();
-//       if (!result.cancelled) setImageUri(result.uri);
-//     } catch (error) {
-//       console.log("error reading an image", error);
-//     }
-//   };
-
-//   const requestPermission = async () => {
-//     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-//     if (!granted) alert("not permitted");
-//   };
-
-//   useEffect(() => {
-//     requestPermission();
-//   }, []);
-
-//   return (
-//     <Screen>
-//       <Button title="Select Image" onPress={selectImage} />
-//       <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
-//     </Screen>
-//   );
-// }
