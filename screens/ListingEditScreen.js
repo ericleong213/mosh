@@ -11,6 +11,7 @@ import {
   AppForm,
   AppFormPicker,
 } from "../components/forms";
+import FormImagePicker from "../components/forms/FormImagePicker";
 
 // validation with Yup , need to review with mosh's source code
 const validationSchema = Yup.object().shape({
@@ -18,6 +19,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().min(1).max(10000).label("Price"),
   category: Yup.string().required().nullable().label("Category"),
   description: Yup.string().label("Description"),
+  images: Yup.array().min(1, "Please select at least one image")
 });
 
 const sampleItems = [
@@ -41,10 +43,12 @@ const ListingEditScreen = () => {
           price: "",
           category: null,
           description: "",
+          images:[],
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images"/> 
         <AppFormField name="title" autoCapitalize="none" autoCorrect={false} />
         <AppFormField
           name="price"
