@@ -5,7 +5,6 @@ import ImageInputList from "../ImageInputList";
 
 import { useFormikContext } from "formik";
 
-
 const FormImagePicker = ({ name }) => {
   const { errors, touched, values, setFieldValue } = useFormikContext();
   const imageUris = values[name];
@@ -14,19 +13,22 @@ const FormImagePicker = ({ name }) => {
     setFieldValue(name, [...imageUris, uri]);
   };
   const handleRemove = (uri) => {
-    setFieldValue(imageUris.filter((imageUri) => imageUri != uri));
+    setFieldValue(
+      name,
+      imageUris.filter((imageUri) => imageUri !== uri)
+    );
   };
 
-
   return (
-  <>
-  <ImageInputList
-   imageUris={imageUris}
-   onAddImage={handleAdd}
-   onRemoveImage={handleRemove}
-  />
-  <ErrorMessage error={errors[name]} visible={touched[name]} />
-  </>);
+    <>
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+      />
+      <ErrorMessage error={errors[name]} visible={touched[name]} />
+    </>
+  );
 };
 
 export default FormImagePicker;
