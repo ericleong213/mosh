@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Button } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 import Screen from "./components/Screen";
@@ -13,7 +14,7 @@ const Link = () => {
   return (
     <Button
       title="click"
-      onPress={() => navigation.navigate("TweetsDetails", { id: 1 })}
+      onPress={() => navigation.navigate("Account", { id: 1 })}
     />
   );
 };
@@ -36,6 +37,25 @@ const TweetsDetails = ({ route }) => {
 };
 
 const Stack = createStackNavigator();
+
+const Account = () => {
+  return (
+    <Screen>
+      <Text>Account</Text>
+    </Screen>
+  );
+};
+
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Feed" component={Tweets} />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  );
+};
+
 const StackNavigator = () => {
   return (
     <Stack.Navigator
@@ -65,7 +85,7 @@ const StackNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <TabNavigator />
     </NavigationContainer>
   );
 }
