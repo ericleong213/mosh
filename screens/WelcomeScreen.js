@@ -1,11 +1,34 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
-import AppButton from "../components/AppButton/AppButton.android";
+import { useNavigation } from "@react-navigation/native";
 
+import AppButton from "../components/AppButton/AppButton.android";
 import colors from "../config/colors";
 
 const image = require("../assets/background.jpg");
 const logo = require("../assets/logo-red.png");
+
+const LoginButton = () => {
+  const navigation = useNavigation();
+  return (
+    <AppButton
+      title="LOGIN"
+      color="primary"
+      onPress={() => navigation.navigate("Login")}
+    />
+  );
+};
+
+const RegisterButton = () => {
+  const navigation = useNavigation();
+  return (
+    <AppButton
+      title="REGISTER"
+      color="secondary"
+      onPress={() => navigation.navigate("Register")}
+    />
+  );
+};
 
 export default function WelcomeScreen() {
   return (
@@ -18,16 +41,8 @@ export default function WelcomeScreen() {
       <Image style={styles.logoImage} source={logo} resizeMode="cover" />
       <Text style={styles.title}>Sell What You Don't Need</Text>
       <View style={styles.buttonContainer}>
-        <AppButton
-          title="LOGIN"
-          color="primary"
-          onPress={() => console.log("login is pressed")}
-        />
-        <AppButton
-          title="REGISTER"
-          color="secondary"
-          onPress={() => console.log("Register is pressed")}
-        />
+        <LoginButton />
+        <RegisterButton />
       </View>
     </ImageBackground>
   );
