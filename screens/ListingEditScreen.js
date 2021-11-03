@@ -12,7 +12,7 @@ import {
   AppFormPicker,
 } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
-import useLocation from "../hooks/useLocation";
+// import useLocation from "../hooks/useLocation";
 
 // validation with Yup , need to review with mosh's source code
 const validationSchema = Yup.object().shape({
@@ -36,8 +36,7 @@ const sampleItems = [
 ];
 
 const ListingEditScreen = () => {
-  
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <Screen style={styles.container}>
@@ -49,7 +48,7 @@ const ListingEditScreen = () => {
           description: "",
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
