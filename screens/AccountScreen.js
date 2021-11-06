@@ -1,5 +1,10 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableWithoutFeedback,
+} from "react-native";
 
 import Icon from "../components/Icon";
 import ListItem from "../components/lists/ListItem";
@@ -20,10 +25,11 @@ const menuItems = [
       name: "email",
       backgroundColor: "green",
     },
+    targetScreen: "Messages",
   },
 ];
 
-export default function AccountScreen() {
+export default function AccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -46,6 +52,12 @@ export default function AccountScreen() {
                   name={item.icon.name}
                   backgroundColor={item.icon.backgroundColor}
                 />
+              }
+              onPress={() =>
+                navigation.navigate(
+                  item.targetScreen,
+                  "sample argument to eliminate the warning"
+                )
               }
             />
           )}
