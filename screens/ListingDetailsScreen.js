@@ -1,47 +1,51 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
-import Card from "../components/Card";
 import colors from "../config/colors";
 import ListItem from "../components/lists/ListItem";
 
-export default function ListingDetailsScreen() {
+function ListingDetailsScreen({ route }) {
+  const listing = route.params;
+
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/jacket.jpg")}
-        resizeMode="cover"
-        style={styles.topImage}
-      />
-      <View style={styles.titleBox}>
-        <Text style={styles.title}>Red jacket for sale</Text>
-        <Text style={styles.price}>$ 100</Text>
+    <View>
+      <Image style={styles.image} source={listing.image} />
+      <View style={styles.detailsContainer}>
+        <Text style={styles.title}>{listing.title}</Text>
+        <Text style={styles.price}>${listing.price}</Text>
+        <View style={styles.userContainer}>
+          <ListItem
+            image={require("../assets/mosh.jpg")}
+            title="Mosh Hamedani"
+            subTitle="5 Listings"
+          />
+        </View>
       </View>
-      <ListItem />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  detailsContainer: {
+    padding: 20,
   },
-  topImage: {
+  image: {
     width: "100%",
-    height: 250,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+    height: 300,
   },
   price: {
     color: colors.secondary,
-    paddingTop: 10,
+    fontWeight: "bold",
+    fontSize: 20,
+    marginVertical: 10,
   },
-  titleBox: {
-    paddingVertical: 20,
-    paddingLeft: 20,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
+  title: {
+    fontSize: 24,
+    fontWeight: "500",
+  },
+  userContainer: {
+    marginVertical: 40,
   },
 });
+
+export default ListingDetailsScreen;
