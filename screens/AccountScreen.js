@@ -10,6 +10,7 @@ import Icon from "../components/Icon";
 import ListItem from "../components/lists/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/lists/ListItemSeparator";
+import routes from "../navigation/routes";
 
 const menuItems = [
   {
@@ -25,7 +26,7 @@ const menuItems = [
       name: "email",
       backgroundColor: "green",
     },
-    targetScreen: "Messages",
+    targetScreen: routes.MESSAGES,
   },
 ];
 

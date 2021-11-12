@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 
 import AppButton from "../components/AppButton/AppButton.android";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
 
 const image = require("../assets/background.jpg");
 const logo = require("../assets/logo-red.png");
@@ -21,12 +22,12 @@ export default function WelcomeScreen({ navigation }) {
         <AppButton
           title="LOGIN"
           color="primary"
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate(routes.LOGIN)}
         />
         <AppButton
           title="REGISTER"
           color="secondary"
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate(routes.REGISTER)}
         />
       </View>
     </ImageBackground>

@@ -7,7 +7,7 @@ import AppNavigator from "./navigation/AppNavigator";
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   );
 }
