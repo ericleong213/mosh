@@ -9,11 +9,11 @@ import {
 
 import colors from "../config/colors";
 
-const Card = ({ title, subTitle, image, onPress }) => {
+const Card = ({ title, subTitle, imageUrl, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
-        <Image source={image} style={styles.cardImage} resizeMode="cover" />
+        <Image source={{uri: imageUrl}} style={styles.cardImage} resizeMode="cover" />
         <View style={styles.titleBox}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subTitle}>{subTitle}</Text>
