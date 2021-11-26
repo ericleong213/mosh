@@ -6,6 +6,7 @@ import Card from "../components/Card";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
+import useApi from "../hooks/useApi";
 
 // const listings = [
 //   {
@@ -25,20 +26,28 @@ import listingsApi from "../api/listings";
 // ];
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [errors, setErrors] = useState();
-  const [loading, setLoading] = useState(false);
+  // const [listings, setListings] = useState([]);
+  // const [errors, setErrors] = useState();
+  // const [loading, setLoading] = useState(false);
 
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(listingsApi.getListings);
 
-    if (!response.ok) return setErrors(true);
+  // const loadListings = async () => {
 
-    setListings(response.data);
-    setErrors(false);
-  };
+  //   setLoading(true);
+  //   const response = await listingsApi.getListings();
+  //   setLoading(false);
+
+  //   if (!response.ok) return setErrors(true);
+
+  //   setListings(response.data);
+  //   setErrors(false);
+  // };
 
   useEffect(() => {
     loadListings();
@@ -46,7 +55,7 @@ function ListingsScreen({ navigation }) {
 
   return (
     <Screen style={styles.screen}>
-      {errors && (
+      {error && (
         <View>
           <Text>data cannot be retrieved!</Text>
           <Button title="Retry" onPress={loadListings} />

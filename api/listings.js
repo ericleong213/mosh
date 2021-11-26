@@ -2,6 +2,6 @@ import client from "./client";
 
 const endpoint = "/magas";
 
-const getListings = () => client.get(endpoint);
+const getListings = (a, b, c) => client.get(endpoint);
 
 export default { getListings };
