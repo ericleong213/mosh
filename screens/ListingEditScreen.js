@@ -17,6 +17,7 @@ import {
 } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
+import UploadScreen from "./UploadScreen";
 
 // validation with Yup , need to review with mosh's source code
 const validationSchema = Yup.object().shape({
@@ -41,18 +42,23 @@ const sampleItems = [
 
 const ListingEditScreen = () => {
   // const location = useLocation();
-  // const [progress, setProgress] = useState(false);
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+
   const handleSubmit = async (listing) => {
+    setUploadVisible(true);
     const result = await listingsApi.addListing({ ...listing }, (progress) =>
-      console.log(progress)
+      setProgress(progress)
     );
+    setUploadVisible(false);
+
     if (!result.ok) return alert("Could not save the listings");
     alert("Success");
   };
 
   return (
     <Screen style={styles.container}>
-      {/* <ProgressIndicator active={progress} /> */}
+      <UploadScreen progress={progress} visible={uploadVisible} />
       {/* <DoneAnimation visible={true} /> */}
       <AppForm
         initialValues={{
