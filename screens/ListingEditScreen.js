@@ -1,9 +1,13 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Alert } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import PickerItemCategory from "../components/PickerItemCategory";
+import DoneAnimation from "../components/DoneAnimation";
+import ProgressIndicator from "../components/ProgressIndicator";
+
+import listingsApi from "../api/listings";
 
 import {
   AppFormField,
@@ -12,7 +16,7 @@ import {
   AppFormPicker,
 } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
-// import useLocation from "../hooks/useLocation";
+import useLocation from "../hooks/useLocation";
 
 // validation with Yup , need to review with mosh's source code
 const validationSchema = Yup.object().shape({
@@ -37,9 +41,17 @@ const sampleItems = [
 
 const ListingEditScreen = () => {
   // const location = useLocation();
+  const [progress, setProgress] = useState(false);
+  const handleSubmit = async (listing) => {
+    const result = await listingsApi.addListing({ ...listing });
+    if (!result.ok) return Alert.alert("Could not save the listings");
+    Alert.alert("Success");
+  };
 
   return (
     <Screen style={styles.container}>
+      {/* <ProgressIndicator active={progress} /> */}
+      {/* <DoneAnimation visible={true} /> */}
       <AppForm
         initialValues={{
           title: "",
@@ -49,6 +61,7 @@ const ListingEditScreen = () => {
           images: [],
         }}
         onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
