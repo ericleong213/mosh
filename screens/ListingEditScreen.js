@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Alert } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
@@ -41,11 +41,13 @@ const sampleItems = [
 
 const ListingEditScreen = () => {
   // const location = useLocation();
-  const [progress, setProgress] = useState(false);
+  // const [progress, setProgress] = useState(false);
   const handleSubmit = async (listing) => {
-    const result = await listingsApi.addListing({ ...listing });
-    if (!result.ok) return Alert.alert("Could not save the listings");
-    Alert.alert("Success");
+    const result = await listingsApi.addListing({ ...listing }, (progress) =>
+      console.log(progress)
+    );
+    if (!result.ok) return alert("Could not save the listings");
+    alert("Success");
   };
 
   return (
