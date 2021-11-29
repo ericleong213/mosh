@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
@@ -45,21 +45,26 @@ const ListingEditScreen = () => {
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const handleSubmit = async (listing) => {
+  const handleSubmit = async (listing, { resetForm }) => {
     setUploadVisible(true);
     const result = await listingsApi.addListing({ ...listing }, (progress) =>
       setProgress(progress)
     );
-    setUploadVisible(false);
 
-    if (!result.ok) return alert("Could not save the listings");
-    alert("Success");
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Could not save the listings");
+    }
+    resetForm();
   };
 
   return (
     <Screen style={styles.container}>
-      <UploadScreen progress={progress} visible={uploadVisible} />
-      {/* <DoneAnimation visible={true} /> */}
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <AppForm
         initialValues={{
           title: "",
@@ -68,7 +73,6 @@ const ListingEditScreen = () => {
           description: "",
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
