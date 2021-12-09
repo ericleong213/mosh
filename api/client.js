@@ -13,7 +13,7 @@ apiClient.get = async (url, params, axiosConfig) => {
   const response = await get(url, params, axiosConfig);
   //After the original function
   if (response.ok) {
-    cache.get(url, response.data);
+    cache.store(url, response.data);
     return response;
   }
 
