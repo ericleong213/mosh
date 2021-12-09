@@ -71,6 +71,8 @@ function ListingsScreen({ navigation }) {
             subTitle={"$" + item.price}
             imageUrl={item.image.url}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+            // should make an image with lower resolution for faster loading, For this practice , I just use the same file(url). 
+            thumbnailUrl={item.image.url}
           />
         )}
       />
