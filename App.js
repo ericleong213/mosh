@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 import navigationTheme from "./navigation/navigationTheme";
